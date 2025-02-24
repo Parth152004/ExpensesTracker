@@ -26,7 +26,7 @@ public class DepartmentController {
     }
     // get Department by id
     @GetMapping("/Departments/{id}")
-    public ResponseEntity<Department> getDepartmentById(@PathVariable long id){
+    public ResponseEntity<Department> getDepartmentById(@PathVariable long id) throws Exception{
         Department department = departmentService.getDepartmentById(id);
         return ResponseEntity.ok(department);
     }

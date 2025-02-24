@@ -1,11 +1,13 @@
 package com.example.demo.Service;
 
 import com.example.demo.Entity.Department;
+import com.example.demo.Exception.DepartmentNotFoundException;
 import com.example.demo.Repository.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DepartmentServiceImp implements DepartmentService{
@@ -26,8 +28,13 @@ public class DepartmentServiceImp implements DepartmentService{
     }
 
     @Override
-    public Department getDepartmentById(Long Id){
-        return departmentRepository.findById(Id).orElseThrow(()->new RuntimeException("Department Id Not found"));
+    public Department getDepartmentById(Long Id) throws DepartmentNotFoundException {
+        Optional<Department> department = departmentRepository.findById(Id);
+
+        if(!department.isPresent()){
+            throw new DepartmentNotFoundException("Department is not Available");
+        }
+        return department.get();
     }
 
     @Override
