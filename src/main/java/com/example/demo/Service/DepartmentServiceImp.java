@@ -31,4 +31,25 @@ public class DepartmentServiceImp implements DepartmentService{
         return departmentRepository.findById(Id).orElseThrow(()->new RuntimeException("Department Id Not found"));
     }
 
+    @Override
+    public Department updateDepartment(Department department, long id) {
+        Department department1 = departmentRepository.findById(id).orElseThrow(()->new RuntimeException("Department Not found"));
+
+        department1.setDepartmentId(department.getDepartmentId());
+        department1.setDepartmentAddress(department.getDepartmentAddress());
+        department1.setDepartmentCode(department.getDepartmentCode());
+        department1.setDepartmentName(department.getDepartmentName());
+
+        departmentRepository.save(department1);
+
+        return department1;
+    }
+
+    @Override
+    public Department deleteDepartment(long id) {
+        Department department = departmentRepository.findById(id).orElseThrow(()-> new RuntimeException("Departmetn not Found"));
+        departmentRepository.delete(department);
+        return department;
+    }
+
 }
