@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -18,9 +19,10 @@ public class Users {
     String userName;
 
     String email;
+
     String password;
 
-    Date createAt;
+    LocalDate createAt = LocalDate.now();
 
     public Users() {
     }
@@ -29,7 +31,7 @@ public class Users {
         this.userId = userId;
     }
 
-    public Users(long userId, String userName, String email, String password, Date createAt) {
+    public Users(long userId, String userName, String email, String password, LocalDate createAt) {
         this.userId = userId;
         this.userName = userName;
         this.email = email;

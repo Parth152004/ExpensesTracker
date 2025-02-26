@@ -10,4 +10,6 @@ public interface UserService {
     ResponseEntity<Users> addUser(Users user);
 
     List<Users> getUser();
+
+    ResponseEntity<Users> getUserByEmail(Users users);
 }
