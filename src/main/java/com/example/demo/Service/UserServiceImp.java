@@ -24,4 +24,11 @@ public class UserServiceImp implements UserService{
     public List<Users> getUser() {
         return userRepository.findAll();
     }
+
+    @Override
+    public ResponseEntity<Users> getUserByEmail(Users user) {
+        Users users = userRepository.findByEmail(user.getEmail());
+        return ResponseEntity.ok(users);
+    }
+
 }

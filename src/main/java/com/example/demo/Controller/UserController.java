@@ -2,6 +2,7 @@ package com.example.demo.Controller;
 
 import com.example.demo.Entity.Users;
 import com.example.demo.Service.UserService;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,5 +24,10 @@ public class UserController {
     @GetMapping("/GetUser")
     public List<Users> GetUsers(){
         return userService.getUser();
+    }
+
+    @PostMapping("/GetUser")
+    public ResponseEntity<Users> getUsers(@RequestBody Users users){
+        return userService.getUserByEmail(users);
     }
 }
