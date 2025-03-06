@@ -35,7 +35,7 @@ public class Accounts {
     String accountName;
     String accountType;
 
-    float balance = 0.0f;
+    float balance = 0.0f; //
 
     @Name("created_at")
     LocalDate createdAt = LocalDate.now();
