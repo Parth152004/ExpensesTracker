@@ -21,5 +21,5 @@ public class Friends {
 
     String contact_info;
 
-    LocalDate created_at;
+    LocalDate created_at = LocalDate.now();
 }
