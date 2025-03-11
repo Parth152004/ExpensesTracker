@@ -35,7 +35,7 @@ The Expense Tracker API is a Spring Boot-based backend service that allows users
    ```properties
    spring.datasource.url=jdbc:sqlserver://den1.mssql8.gear.host;databaseName=ExpanceTracker;encrypt=true;trustServerCertificate=true
    spring.datasource.username=mssql57
-   spring.datasource.password=yourpassword
+   spring.datasource.password=@p7KKCHNe!i6UA7
    ```
 3. Build the project:
    ```sh
