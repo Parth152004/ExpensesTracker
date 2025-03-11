@@ -12,4 +12,17 @@ import java.util.Optional;
 @Service
 public class CategorieServiceImp implements CategorieService{
 
+    @Autowired
+    CategorieRepository categoriesRepository;
+
+    @Override
+    public ResponseEntity<Categories> createCategories(Categories categories) {
+        Categories createdCategories = categoriesRepository.save(categories);
+        return ResponseEntity.ok(categories);
+    }
+
+    @Override
+    public ResponseEntity<List<Categories>> getUserWiseCategories(Long id) {
+        return ResponseEntity.ok(categoriesRepository.findByUsersUserID(id));
+    }
 }

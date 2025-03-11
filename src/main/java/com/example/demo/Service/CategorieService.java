@@ -7,4 +7,7 @@ import java.nio.channels.FileChannel;
 import java.util.List;
 
 public interface CategorieService {
+    ResponseEntity<Categories> createCategories(Categories categories);
+
+    ResponseEntity<List<Categories>> getUserWiseCategories(Long id);
 }

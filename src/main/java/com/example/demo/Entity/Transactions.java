@@ -30,5 +30,5 @@ public class Transactions {
 
     String description;
 
-    LocalDate created_at;
+    LocalDate created_at = LocalDate.now();
 }

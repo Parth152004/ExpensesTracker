@@ -9,7 +9,6 @@ import java.time.LocalDate;
 
 @Entity
 @Data
-@AllArgsConstructor
 public class Categories {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,8 +19,10 @@ public class Categories {
     @JoinColumn(name = "userId")
     Users users;
 
+    @Name("category_name")
     String categoryName;
+    @Name("category_type")
     String categoryType;
 
-    LocalDate createdAt;
+    LocalDate createdAt = LocalDate.now();
 }
