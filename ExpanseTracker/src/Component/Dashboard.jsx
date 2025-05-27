@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Dashboard.css";
+
 
 function Dashboard() {
   const [transactions, setTransactions] = useState([]);
@@ -7,6 +9,8 @@ function Dashboard() {
   const [hasMore, setHasMore] = useState(true);
 
   const userId = localStorage.getItem("userId"); // Get stored user ID
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     fetchTransactions();
@@ -15,15 +19,17 @@ function Dashboard() {
   const fetchTransactions = async () => {
     if (!userId) return;
     setLoading(true);
-
     try {
       const response = await fetch(`https://springbasics.onrender.com/api/getTransaction/${userId}`);
       if (!response.ok) throw new Error("Failed to fetch transactions");
-
       const data = await response.json();
-      setTransactions((prev) => [...prev, data]); // Append new transactions
-      setHasMore(false); // Assuming API returns all transactions at once
-
+      console.log("Fetched data:", data);
+      if (Array.isArray(data)) {
+        setTransactions((prev) => [...prev, ...data]);
+      } else {
+        setTransactions((prev) => [...prev, data]); 
+      }
+      setHasMore(false); // Optional, depending on your pagination logic
     } catch (error) {
       console.error("Error fetching transactions:", error);
     } finally {
@@ -37,10 +43,12 @@ function Dashboard() {
       <div className="navbar">
         <h1>Dashboard</h1>
         <div className="navbar-buttons">
-          <button>Add Account</button>
-          <button>Add Category</button>
-          <button>Add Budget</button>
-          <button>Add Friend</button>
+          <button onClick={() => navigate('/dashboard')}>Home</button>
+          <button>Account</button>
+          <button>Category</button>
+          <button>Budget</button>
+          <button>Friend</button>
+          <button onClick={() => navigate('/addTransaction')}>Transaction</button>
         </div>
       </div>
 

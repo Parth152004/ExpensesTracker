@@ -1,0 +1,46 @@
+.form-container {
+  margin: 20px;
+  padding: 20px;
+  background: #2a2d3e; /* Dark background to match dashboard */
+  border-radius: 10px;
+  width: 400px;
+  color: white; /* White text for readability */
+}
+
+.transaction-form label {
+  display: block;
+  margin-bottom: 10px;
+  color: #c0c0c0; /* Light gray for labels */
+}
+
+.transaction-form input,
+.transaction-form select {
+  width: 100%;
+  padding: 5px;
+  margin-top: 5px;
+  background: #1e1e2f; /* Dark input background */
+  color: white; /* White text */
+  border: 1px solid #444; /* Subtle border */
+  border-radius: 4px;
+}
+
+.transaction-form input:focus,
+.transaction-form select:focus {
+  outline: none;
+  border-color: #007bff; /* Blue border on focus */
+}
+
+.transaction-form button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #007bff; /* Blue button background */
+  color: white; /* White text */
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.transaction-form button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
