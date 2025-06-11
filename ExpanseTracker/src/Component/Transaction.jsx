@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Navbar from "./Navbar";
 import { useNavigate } from "react-router-dom";
 import "./Dashboard.css";
 import "./Transaction.css";
@@ -38,7 +39,7 @@ function Transaction() {
     if (!formData.userId) return;
     const fetchAccounts = async () => {
       try {
-        const res = await fetch(`https://springbasics.onrender.com/api/Accounts/user/${formData.userId}`);
+        const res = await fetch(`https://springbasics.onrender.com/api/Accounts/user/${localStorage.getItem("userId")}`);
         const data = await res.json();
         setAccounts(data);
       } catch (error) {
@@ -53,7 +54,7 @@ function Transaction() {
     if (!formData.userId) return;
     const fetchCategories = async () => {
       try {
-        const res = await fetch(`https://springbasics.onrender.com/categories/getCategories/${formData.userId}`);
+        const res = await fetch(`https://springbasics.onrender.com/categories/getCategories/${localStorage.getItem("userId")}`);
         const data = await res.json();
         setCategories(data);
       } catch (error) {
@@ -114,19 +115,7 @@ function Transaction() {
 
   return (
     <>
-      {/* Navbar */}
-      <div className="navbar">
-        <h1>Transaction</h1>
-        <div className="navbar-buttons">
-          <button onClick={() => navigate('/dashboard')}>Home</button>
-          <button>Account</button>
-          <button>Category</button>
-          <button>Budget</button>
-          <button>Friend</button>
-          <button onClick={() => navigate('/addTransaction')}>Transaction</button>
-        </div>
-      </div>
-
+      <Navbar title="Dashboard" />
       {/* Transaction Form */}
       <div className="form-container">
         <h2>Add New Transaction</h2>

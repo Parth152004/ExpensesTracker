@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"; // For navigation
 import "./Login.css"; // Assuming you have this for styling
+import "./Dashboard.css";
 
 function Login({ onLogin }) {
   const [email, setEmail] = useState("");
