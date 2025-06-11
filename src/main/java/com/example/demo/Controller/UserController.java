@@ -31,4 +31,9 @@ public class UserController {
     public ResponseEntity<Users> getUsers(@RequestBody Users users){
         return userService.getUserByEmail(users);
     }
+
+    @DeleteMapping("/DeleteUser")
+    public void deleteUsers(@RequestBody Users users){
+        userService.deleteUserByEmail(users);
+    }
 }

@@ -5,6 +5,7 @@ import com.example.demo.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -31,4 +32,9 @@ public class UserServiceImp implements UserService{
         return ResponseEntity.ok(users);
     }
 
+    @Transactional // Ensure the delete operation is transactional
+    public void deleteUserByEmail(Users user) {
+        // Call the new deleteByEmail method
+        userRepository.deleteByEmail(user.getEmail());
+    }
 }

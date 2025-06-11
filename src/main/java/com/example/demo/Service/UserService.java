@@ -12,4 +12,6 @@ public interface UserService {
     List<Users> getUser();
 
     ResponseEntity<Users> getUserByEmail(Users users);
+
+    void deleteUserByEmail(Users users);
 }
