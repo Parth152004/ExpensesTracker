@@ -65,6 +65,15 @@ function Login({ onLogin }) {
           {loading ? "Logging in..." : "Login"}
         </button>
       </form>
+       <p style={{ marginTop: "15px" }}>
+        New User Plase {" "}
+        <span
+          style={{ color: "#4da6ff", cursor: "pointer", textDecoration: "underline" }}
+          onClick={() => navigate("/")}
+        >
+          Register here
+        </span>
+      </p>
     </div>
   );
 }
