@@ -6,7 +6,7 @@ import Transaction from "./Component/Transaction";
 import Register from "./Component/Registration";
 import CreateAccount from "./Component/Account";
 import CreateCategory from "./Component/Category";
-import "./Dashboard.css";
+import "./Component/Dashboard.css";
 
 function App() {
   const [userName, setUserName] = useState("");
