@@ -319,3 +319,57 @@ body {
     font-size: 18px;
   }
 }
+.sms-input-section {
+  background-color: #2a2d3e;
+  padding: 20px;
+  margin: 30px auto;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 700px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.sms-input-section h2 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.sms-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.sms-textarea {
+  width: 100%;
+  min-height: 150px;
+  padding: 10px;
+  background-color: #1e1e2f;
+  color: white;
+  border: 1px solid #555;
+  border-radius: 6px;
+  font-size: 14px;
+  resize: vertical;
+}
+
+.parse-btn {
+  align-self: flex-end;
+  padding: 10px 20px;
+  background-color: #00bfff;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.parse-btn:hover {
+  background-color: #009acd;
+}
+
+.parsed-results {
+  margin-top: 20px;
+}
+
